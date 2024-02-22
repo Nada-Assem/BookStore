@@ -37,7 +37,6 @@ namespace BookStore.WinForms
 
             dataGridView1.DataSource = order.ReturnOrders();
         }
-
         private void BtUpdateOrder_Click(object sender, EventArgs e)
         {
             var selectedStatus = (OrderStatusEnum)comboBox1.SelectedItem;

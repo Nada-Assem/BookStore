@@ -22,10 +22,7 @@ namespace BookStore.Repository
         {
             _dbContext = dbContext;
         }
-
-        
-
-        public List<OrderToReturnDTO>? GetAllOrdersRepo()
+        public List<OrderToReturnDTO>? GetAllOrdersForAdminRepo()
         {
             var query = from order in _dbContext.Orders
                         join customer in _dbContext.Customers on order.CustomerId equals customer.Id
@@ -44,20 +41,63 @@ namespace BookStore.Repository
             List<OrderToReturnDTO> ordersToReturnDTO = query.ToList();
             return ordersToReturnDTO;
         }
-
-        public Order? GetOrderToUpdateRepo(int orderId)
+        public Order? GetOrderToUpdateForAdminRepo(int orderId)
         {
             var order = _dbContext.Orders.Find(orderId);
             return order;
         }
-
-        public CheckStatusEnum changeOrderStatusRepo(Order order, OrderStatusEnum newstatus)
+        public CheckStatusEnum ChangeOrderStatusRepo(Order order, OrderStatusEnum newstatus)
         {
             order.Status = newstatus;
             if (_dbContext.SaveChanges() > 0)
                 return CheckStatusEnum.Saved;
             else
                 return CheckStatusEnum.NotSaved;
+        }
+        public List<CustomerOrderToReturnDTO>? GetAllCustomerOrdersRepo(int customerId)
+        {
+            var query = from order in _dbContext.Orders
+                        join customer in _dbContext.Customers on order.CustomerId equals customerId
+                        select new CustomerOrderToReturnDTO
+                        {
+                            OrderId = order.Id,
+                            Amount = order.Amount,
+                            Date = order.Date,
+                            Status = order.Status,
+                            Books = (from bookOrder in order.OrderBooks
+                                     join book in _dbContext.Books on bookOrder.BookId equals book.Id
+                                     select book.Title).ToList()
+                        };
+
+            List<CustomerOrderToReturnDTO> ordersToReturnDTO = query.ToList();
+            return ordersToReturnDTO;
+        }
+        public OrderStatusEnum MakeCustomerCancelItsOrderRepo(int orderId)
+        {
+            var Order = _dbContext.Orders.Find(orderId);
+            if (Order is not null)
+            {
+                Order.Status = OrderStatusEnum.Cancelled;
+                return OrderStatusEnum.Cancelled;
+            }
+            return OrderStatusEnum.NotCancelled;
+        }
+        public OrderStatusEnum CreateOrderRepo(int customerId, List<BookCustomer> cart)
+        {
+            Order order = new();
+            order.CustomerId = customerId;
+            order.Status = OrderStatusEnum.Pending;
+            decimal amount = 0;
+            foreach (var item in cart)
+            {
+                var book = _dbContext.Books.Find(item.BookId);
+                amount += book.Price * item.Quantity;
+                _dbContext.BookCustomers.Remove(item);
+            }
+            _dbContext.Orders.Add(order);
+            _dbContext.SaveChanges();
+
+            return OrderStatusEnum.Pending;
         }
     }
 }

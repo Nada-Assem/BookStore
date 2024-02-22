@@ -12,8 +12,11 @@ namespace BookStore.Core.Repositories.Contracts
 {
     public interface IOrderRepository
     {
-        List<OrderToReturnDTO>? GetAllOrdersRepo();
-        Order? GetOrderToUpdateRepo(int orderId);
-        CheckStatusEnum changeOrderStatusRepo(Order order, OrderStatusEnum newstatus);
+        List<OrderToReturnDTO>? GetAllOrdersForAdminRepo();
+        Order? GetOrderToUpdateForAdminRepo(int orderId);
+        CheckStatusEnum ChangeOrderStatusRepo(Order order, OrderStatusEnum newstatus);
+        List<CustomerOrderToReturnDTO>? GetAllCustomerOrdersRepo(int customerId);
+        OrderStatusEnum MakeCustomerCancelItsOrderRepo(int orderId);
+        OrderStatusEnum CreateOrderRepo(int customerId, List<BookCustomer> cart);
     }
 }

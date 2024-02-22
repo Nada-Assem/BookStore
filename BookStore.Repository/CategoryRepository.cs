@@ -24,11 +24,11 @@ namespace BookStore.Repository
         {
             var category = _dbContext.Categories.Where(c => c.Name == categoryName && c.Books.Count() == 0).FirstOrDefault();
             if (category != null)
-                if(Delete(category) == true)
+                if (Delete(category) == true)
                     return true;
             return false;
         }
-        
+
         public Category? GetCategoryMatchedByNameRep(string categoryName)
             => _dbContext.Categories.FirstOrDefault(c => c.Name.Replace(" ", "") == categoryName.Replace(" ", ""));
 
@@ -38,10 +38,10 @@ namespace BookStore.Repository
         public List<CategoryWithBookCountToReturnDTO>? GetCategoryWithBookCount()
         {
             var categories = _dbContext.Categories.Select(c => new CategoryWithBookCountToReturnDTO
-                                {
-                                    Category = c,
-                                    BookCount = c.Books.Count
-                                }).ToList();
+            {
+                Category = c,
+                BookCount = c.Books.Count
+            }).ToList();
             return categories;
         }
     }
