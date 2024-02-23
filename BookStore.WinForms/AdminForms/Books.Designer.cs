@@ -28,130 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BTDelBook = new Button();
-            BTUpdateBook = new Button();
-            BTAddBook = new Button();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            dataGridView1 = new DataGridView();
+            pictureBox1 = new PictureBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            BTAddandUpdateBooks = new Button();
+            BtviewandDelBooks = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // BTDelBook
+            // pictureBox1
             // 
-            BTDelBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            BTDelBook.ForeColor = Color.FromArgb(69, 51, 39);
-            BTDelBook.Location = new Point(396, 292);
-            BTDelBook.Margin = new Padding(3, 2, 3, 2);
-            BTDelBook.Name = "BTDelBook";
-            BTDelBook.Size = new Size(119, 32);
-            BTDelBook.TabIndex = 11;
-            BTDelBook.Text = "Delete";
-            BTDelBook.UseVisualStyleBackColor = true;
-            BTDelBook.Click += BTDelBook_Click;
-            // 
-            // BTUpdateBook
-            // 
-            BTUpdateBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            BTUpdateBook.ForeColor = Color.FromArgb(69, 51, 39);
-            BTUpdateBook.Location = new Point(539, 291);
-            BTUpdateBook.Margin = new Padding(3, 2, 3, 2);
-            BTUpdateBook.Name = "BTUpdateBook";
-            BTUpdateBook.Size = new Size(119, 32);
-            BTUpdateBook.TabIndex = 10;
-            BTUpdateBook.Text = "Update";
-            BTUpdateBook.UseVisualStyleBackColor = true;
-            // 
-            // BTAddBook
-            // 
-            BTAddBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            BTAddBook.ForeColor = Color.FromArgb(69, 51, 39);
-            BTAddBook.Location = new Point(688, 291);
-            BTAddBook.Margin = new Padding(3, 2, 3, 2);
-            BTAddBook.Name = "BTAddBook";
-            BTAddBook.Size = new Size(119, 32);
-            BTAddBook.TabIndex = 9;
-            BTAddBook.Text = "Add";
-            BTAddBook.UseVisualStyleBackColor = true;
-            BTAddBook.Click += BTAddBook_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(139, 299);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(220, 23);
-            textBox1.TabIndex = 8;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(29, 296);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 25);
-            label2.TabIndex = 7;
-            label2.Text = "Book ID";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = Color.FromArgb(69, 51, 39);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(5, 50);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(804, 226);
-            dataGridView1.TabIndex = 12;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            pictureBox1.Image = Properties.Resources.imag4;
+            pictureBox1.Location = new Point(360, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(575, 453);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(323, 7);
+            label1.Location = new Point(107, 61);
             label1.Name = "label1";
-            label1.Size = new Size(109, 45);
-            label1.TabIndex = 13;
+            label1.Size = new Size(135, 54);
+            label1.TabIndex = 1;
             label1.Text = "Books";
-            label1.Click += label1_Click;
+            // 
+            // BTAddandUpdateBooks
+            // 
+            BTAddandUpdateBooks.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            BTAddandUpdateBooks.ForeColor = Color.FromArgb(69, 51, 39);
+            BTAddandUpdateBooks.Location = new Point(44, 218);
+            BTAddandUpdateBooks.Name = "BTAddandUpdateBooks";
+            BTAddandUpdateBooks.Size = new Size(273, 40);
+            BTAddandUpdateBooks.TabIndex = 2;
+            BTAddandUpdateBooks.Text = "Add And Update Books";
+            BTAddandUpdateBooks.UseVisualStyleBackColor = true;
+            BTAddandUpdateBooks.Click += BTAddandUpdateBooks_Click;
+            // 
+            // BtviewandDelBooks
+            // 
+            BtviewandDelBooks.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            BtviewandDelBooks.ForeColor = Color.FromArgb(69, 51, 39);
+            BtviewandDelBooks.Location = new Point(44, 303);
+            BtviewandDelBooks.Name = "BtviewandDelBooks";
+            BtviewandDelBooks.Size = new Size(273, 40);
+            BtviewandDelBooks.TabIndex = 3;
+            BtviewandDelBooks.Text = "View And Delete Books";
+            BtviewandDelBooks.UseVisualStyleBackColor = true;
+            BtviewandDelBooks.Click += BtviewandDelBooks_Click;
             // 
             // Books
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(69, 51, 39);
-            ClientSize = new Size(817, 338);
+            ClientSize = new Size(934, 450);
+            Controls.Add(BtviewandDelBooks);
+            Controls.Add(BTAddandUpdateBooks);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
-            Controls.Add(BTDelBook);
-            Controls.Add(BTUpdateBook);
-            Controls.Add(BTAddBook);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Books";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Books";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button BTDelBook;
-        private Button BTUpdateBook;
-        private Button BTAddBook;
-        private TextBox textBox1;
-        private Label label2;
-        private DataGridView dataGridView1;
+        private PictureBox pictureBox1;
         private Label label1;
+        private Button BTAddandUpdateBooks;
+        private Button BtviewandDelBooks;
     }
 }
