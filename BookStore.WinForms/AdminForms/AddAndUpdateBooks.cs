@@ -26,5 +26,26 @@ namespace BookStore.WinForms.AdminForms
         {
 
         }
+
+        private void BTUploadImg_Click(object sender, EventArgs e)
+        {
+            string imageLocation = "";
+
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    imageLocation = openFileDialog.FileName;
+                    Img.ImageLocation = imageLocation;
+                    
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
     }
 }

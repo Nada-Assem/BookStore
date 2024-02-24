@@ -24,7 +24,8 @@ namespace BookStore.WinForms.CustomerForms
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-
+            Account account = new Account();
+            account.ShowDialog();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)

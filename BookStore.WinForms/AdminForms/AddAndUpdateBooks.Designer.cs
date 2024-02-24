@@ -47,13 +47,15 @@
             textBox7 = new TextBox();
             label9 = new Label();
             BTUploadImg = new Button();
+            Img = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)Img).BeginInit();
             SuspendLayout();
             // 
             // BTAddBook
             // 
             BTAddBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             BTAddBook.ForeColor = Color.FromArgb(69, 51, 39);
-            BTAddBook.Location = new Point(193, 388);
+            BTAddBook.Location = new Point(569, 388);
             BTAddBook.Name = "BTAddBook";
             BTAddBook.Size = new Size(114, 37);
             BTAddBook.TabIndex = 0;
@@ -64,7 +66,7 @@
             // 
             BRUpdateBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             BRUpdateBook.ForeColor = Color.FromArgb(69, 51, 39);
-            BRUpdateBook.Location = new Point(607, 388);
+            BRUpdateBook.Location = new Point(775, 388);
             BRUpdateBook.Name = "BRUpdateBook";
             BRUpdateBook.Size = new Size(114, 37);
             BRUpdateBook.TabIndex = 1;
@@ -221,12 +223,21 @@
             // 
             // BTUploadImg
             // 
-            BTUploadImg.Location = new Point(158, 308);
+            BTUploadImg.Location = new Point(12, 374);
             BTUploadImg.Name = "BTUploadImg";
-            BTUploadImg.Size = new Size(205, 29);
+            BTUploadImg.Size = new Size(133, 29);
             BTUploadImg.TabIndex = 18;
             BTUploadImg.Text = "Upload Image";
             BTUploadImg.UseVisualStyleBackColor = true;
+            BTUploadImg.Click += BTUploadImg_Click;
+            // 
+            // Img
+            // 
+            Img.Location = new Point(158, 308);
+            Img.Name = "Img";
+            Img.Size = new Size(205, 117);
+            Img.TabIndex = 19;
+            Img.TabStop = false;
             // 
             // AddAndUpdateBooks
             // 
@@ -234,6 +245,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(69, 51, 39);
             ClientSize = new Size(934, 450);
+            Controls.Add(Img);
             Controls.Add(BTUploadImg);
             Controls.Add(label9);
             Controls.Add(textBox7);
@@ -260,6 +272,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddAndUpdateBooks";
             Load += AddAndUpdateBooks_Load;
+            ((System.ComponentModel.ISupportInitialize)Img).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -285,5 +298,6 @@
         private TextBox textBox7;
         private Label label9;
         private Button BTUploadImg;
+        private PictureBox Img;
     }
 }
