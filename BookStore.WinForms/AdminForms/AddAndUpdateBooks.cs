@@ -29,23 +29,34 @@ namespace BookStore.WinForms.AdminForms
 
         private void BTUploadImg_Click(object sender, EventArgs e)
         {
-            string imageLocation = "";
-
-            try
+            Thread thread = new Thread(new ThreadStart(() =>
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    imageLocation = openFileDialog.FileName;
-                    Img.ImageLocation = imageLocation;
-                    
+                    OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                    openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF";
+
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        string selectedFile = openFileDialog1.FileName;
+                        // Load the selected image file into the PictureBox
+                        this.Invoke(new Action(() => Img.Image = Image.FromFile(selectedFile)));
+                    }
                 }
-            }catch (Exception ex)
-            {
-                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
+
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+
+        }
+
+        private void Img_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

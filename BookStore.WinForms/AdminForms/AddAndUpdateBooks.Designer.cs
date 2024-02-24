@@ -236,8 +236,10 @@
             Img.Location = new Point(158, 308);
             Img.Name = "Img";
             Img.Size = new Size(205, 117);
+            Img.SizeMode = PictureBoxSizeMode.StretchImage;
             Img.TabIndex = 19;
             Img.TabStop = false;
+            Img.Click += Img_Click;
             // 
             // AddAndUpdateBooks
             // 
