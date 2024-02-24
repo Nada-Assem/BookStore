@@ -21,5 +21,11 @@ namespace BookStore.WinForms.CustomerForms
         {
 
         }
+
+        private void BTViewOrders_Click(object sender, EventArgs e)
+        {
+            ViewYourOrders viewYourOrders = new ViewYourOrders();
+            viewYourOrders.ShowDialog();
+        }
     }
 }

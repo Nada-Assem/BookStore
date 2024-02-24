@@ -42,6 +42,7 @@
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             button1 = new Button();
+            BTViewOrders = new Button();
             SuspendLayout();
             // 
             // label1
@@ -160,6 +161,7 @@
             // 
             textBox6.Location = new Point(574, 341);
             textBox6.Name = "textBox6";
+            textBox6.PasswordChar = '*';
             textBox6.Size = new Size(297, 27);
             textBox6.TabIndex = 12;
             // 
@@ -174,12 +176,25 @@
             button1.Text = "Save Changes";
             button1.UseVisualStyleBackColor = true;
             // 
+            // BTViewOrders
+            // 
+            BTViewOrders.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTViewOrders.ForeColor = Color.FromArgb(69, 51, 39);
+            BTViewOrders.Location = new Point(723, 12);
+            BTViewOrders.Name = "BTViewOrders";
+            BTViewOrders.Size = new Size(188, 35);
+            BTViewOrders.TabIndex = 14;
+            BTViewOrders.Text = "View Your Orders";
+            BTViewOrders.UseVisualStyleBackColor = true;
+            BTViewOrders.Click += BTViewOrders_Click;
+            // 
             // Account
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(69, 51, 39);
             ClientSize = new Size(934, 450);
+            Controls.Add(BTViewOrders);
             Controls.Add(button1);
             Controls.Add(textBox6);
             Controls.Add(textBox5);
@@ -221,5 +236,6 @@
         private TextBox textBox5;
         private TextBox textBox6;
         private Button button1;
+        private Button BTViewOrders;
     }
 }

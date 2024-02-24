@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label7 = new Label();
             label6 = new Label();
             label5 = new Label();
+            button1 = new Button();
             label4 = new Label();
             pictureBox1 = new PictureBox();
             button4 = new Button();
             button3 = new Button();
-            button1 = new Button();
             panel2 = new Panel();
             TotalCart = new Label();
             label1 = new Label();
             label2 = new Label();
             button2 = new Button();
             label3 = new Label();
-            label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -63,6 +63,17 @@
             panel1.Size = new Size(607, 204);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.Control;
+            label7.Location = new Point(246, 36);
+            label7.Name = "label7";
+            label7.Size = new Size(181, 41);
+            label7.TabIndex = 7;
+            label7.Text = "Book Name";
             // 
             // label6
             // 
@@ -85,6 +96,17 @@
             label5.Size = new Size(74, 41);
             label5.TabIndex = 5;
             label5.Text = "EGP";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.FromArgb(69, 51, 39);
+            button1.Location = new Point(451, 160);
+            button1.Name = "button1";
+            button1.Size = new Size(153, 37);
+            button1.TabIndex = 0;
+            button1.Text = "Remove";
+            button1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -128,17 +150,6 @@
             button3.Size = new Size(33, 29);
             button3.TabIndex = 1;
             button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.FromArgb(69, 51, 39);
-            button1.Location = new Point(451, 160);
-            button1.Name = "button1";
-            button1.Size = new Size(153, 37);
-            button1.TabIndex = 0;
-            button1.Text = "Remove";
-            button1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -208,17 +219,6 @@
             label3.TabIndex = 2;
             label3.Text = "Cart";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.Control;
-            label7.Location = new Point(246, 36);
-            label7.Name = "label7";
-            label7.Size = new Size(181, 41);
-            label7.TabIndex = 7;
-            label7.Text = "Book Name";
-            // 
             // Cart
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -229,7 +229,11 @@
             Controls.Add(label3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Cart";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cart";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

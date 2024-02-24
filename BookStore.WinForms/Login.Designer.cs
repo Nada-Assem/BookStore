@@ -98,6 +98,7 @@
             textBox2.ForeColor = Color.FromArgb(69, 51, 39);
             textBox2.Location = new Point(668, 233);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(200, 27);
             textBox2.TabIndex = 7;
             // 
