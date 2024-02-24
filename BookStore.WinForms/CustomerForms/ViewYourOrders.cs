@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BookStore.WinForms.CustomerForms
 {
-    public partial class Account : Form
+    public partial class ViewYourOrders : Form
     {
-        public Account()
+        public ViewYourOrders()
         {
             InitializeComponent();
-        }
-
-        private void Account_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

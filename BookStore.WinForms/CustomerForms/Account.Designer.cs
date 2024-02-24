@@ -49,7 +49,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(323, 24);
+            label1.Location = new Point(322, 61);
             label1.Name = "label1";
             label1.Size = new Size(266, 46);
             label1.TabIndex = 0;
@@ -200,6 +200,7 @@
             Name = "Account";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Account";
+            Load += Account_Load;
             ResumeLayout(false);
             PerformLayout();
         }
