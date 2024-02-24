@@ -44,7 +44,8 @@ namespace BookStore.WinForms.CustomerForms
 
         private void PBCart_Click(object sender, EventArgs e)
         {
-
+            Cart cart = new Cart();
+            cart.ShowDialog();
         }
 
         private void pictureBox1_Click_2(object sender, EventArgs e)
