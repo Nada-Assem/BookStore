@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BookStore.Core.Services.Contracts
 {
@@ -14,6 +15,8 @@ namespace BookStore.Core.Services.Contracts
             void AddBook(Book book);
             void UpdateBook(Book book);
             void DeleteBook(int id);
-        
+            Book GetBookByName(string name);
+        public List<Book> GetBooksByCategoryId(int categoryId);
+
     }
 }

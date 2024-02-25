@@ -23,10 +23,29 @@ namespace BookStore.Repository
             return _context.Books.Include(b => b.BookAuthors)
                                   .Include(b => b.BookPublishers)
                                   .Include(b => b.BookOrders)
-                                  .Include(b => b.BookCustomers)
-                                  .ToList();
+                                  .Include(b => b.BookCustomers);
+                                  
+        }
+        public List<Book> GetBooksByCategoryId(int categoryId)
+        {
+          
+              
+                var books = _context.Books
+                    .Where(b => b.CategoryId== categoryId)
+                    .ToList();
+
+                return books;
+            
         }
 
+        public Book GetByName(string name )
+        {
+            return _context.Books.Include(b => b.BookAuthors)
+                                .Include(b => b.BookPublishers)
+                                .Include(b => b.BookOrders)
+                                .Include(b => b.BookCustomers)
+                                .FirstOrDefault(b => b.Title == name);
+        }
         public Book GetById(int id)
         {
             return _context.Books.Include(b => b.BookAuthors)

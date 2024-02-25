@@ -17,7 +17,10 @@ namespace BookStore.Service
         public BooksService(StoreContext dbContext) : base(dbContext)
             => _dbContext = dbContext;
 
-
+        public List<Book> GetBooksByCategory(int categoryId)
+        {
+            return GetBooksByCategoryId(categoryId);
+        }
         public IEnumerable<Book> GetAllBooks()
         {
             return GetAll();
@@ -28,7 +31,11 @@ namespace BookStore.Service
 
             return GetById(id);
         }
+        public Book GetBookByName(string name)
+        {
 
+            return GetByName(name);
+        }
         public void AddBook(Book book)
         {
             Add(book);
