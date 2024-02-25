@@ -48,6 +48,7 @@
             label3 = new Label();
             label5 = new Label();
             comboBox1 = new ComboBox();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)Img).BeginInit();
             SuspendLayout();
             // 
@@ -160,10 +161,10 @@
             // Img
             // 
             Img.Image = (Image)resources.GetObject("Img.Image");
-            Img.Location = new Point(159, 248);
+            Img.Location = new Point(134, 238);
             Img.Margin = new Padding(3, 2, 3, 2);
             Img.Name = "Img";
-            Img.Size = new Size(176, 280);
+            Img.Size = new Size(150, 89);
             Img.SizeMode = PictureBoxSizeMode.StretchImage;
             Img.TabIndex = 19;
             Img.TabStop = false;
@@ -240,12 +241,24 @@
             comboBox1.Size = new Size(140, 23);
             comboBox1.TabIndex = 34;
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            label12.ForeColor = SystemColors.Control;
+            label12.Location = new Point(12, 248);
+            label12.Name = "label12";
+            label12.Size = new Size(56, 21);
+            label12.TabIndex = 35;
+            label12.Text = "Image";
+            // 
             // AddAndUpdateBooks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(69, 51, 39);
             ClientSize = new Size(817, 338);
+            Controls.Add(label12);
             Controls.Add(comboBox1);
             Controls.Add(label5);
             Controls.Add(label3);
@@ -299,5 +312,6 @@
         private Label label3;
         private Label label5;
         private ComboBox comboBox1;
+        private Label label12;
     }
 }

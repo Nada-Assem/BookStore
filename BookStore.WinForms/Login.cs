@@ -41,7 +41,7 @@ namespace BookStore.WinForms
 
                 if (admin.UserLogin(userName, password) > 0)
                 {
-                    HomeAdmin homeAdmin = new HomeAdmin();
+                    HomeAdmin homeAdmin = new HomeAdmin(dbContext);
                     homeAdmin.Show();
                     this.Hide();
                 }
@@ -53,9 +53,11 @@ namespace BookStore.WinForms
                 string userName = TBUserName.Text;
                 string password = textBox2.Text;
 
-                if (customer.UserLogin(userName, password) > 0)
+                var customerId = customer.UserLogin(userName, password);
+
+                if (customerId > 0)
                 {
-                    HomeCustomer homeCustomer = new HomeCustomer();
+                    HomeCustomer homeCustomer = new HomeCustomer(customerId, dbContext);
                     homeCustomer.Show();
                     this.Hide();
                 }

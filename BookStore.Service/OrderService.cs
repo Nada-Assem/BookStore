@@ -15,7 +15,14 @@ namespace BookStore.Service
 {
     public class OrderService : OrderRepository, IOrderService
     {
-        public OrderService(StoreContext dbContext) : base(dbContext) { }
+        private IBookService _bookService;
+        private readonly StoreContext _dbContext;
+
+        public OrderService(StoreContext dbContext) : base(dbContext)
+        {
+            _dbContext = dbContext;
+            _bookService = new BooksService(_dbContext);
+        }
         public List<OrderToReturnDTO>? ReturnOrders()
         {
             List<OrderToReturnDTO>? orders = GetAllOrdersForAdminRepo();
@@ -44,10 +51,7 @@ namespace BookStore.Service
                 return OrderStatusEnum.Cancelled;
             return OrderStatusEnum.NotCancelled;
         }
-
         public OrderStatusEnum CreateOrder(int customerId, List<BookCustomer> cart)
-        {
-            throw new NotImplementedException();
-        }
+           => CreateOrderRepo(customerId, cart);
     }
 }

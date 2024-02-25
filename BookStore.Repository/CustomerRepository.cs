@@ -49,7 +49,7 @@ namespace BookStore.Repository
             }
         }
 
-        Customer? ICustomerRepository.GetCustomerById(int customerId)
+        public Customer? GetCustomerByIdRepo(int customerId)
         {
             return _dbContext.Customers.FirstOrDefault(c => c.Id == customerId);
         }

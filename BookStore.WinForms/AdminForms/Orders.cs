@@ -19,12 +19,14 @@ namespace BookStore.WinForms
 {
     public partial class Orders : Form
     {
-        static StoreContext dbContext = new StoreContext();
-        IOrderService order = new OrderService(dbContext);
+        private readonly StoreContext _dbContext;
+        IOrderService order;
 
-        public Orders()
+        public Orders(StoreContext dbContext)
         {
             InitializeComponent();
+            _dbContext = dbContext;
+            order = new OrderService(_dbContext);
         }
 
         private void Form3_Load(object sender, EventArgs e)

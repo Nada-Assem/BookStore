@@ -82,6 +82,7 @@ namespace BookStore.WinForms.AdminForms
                 Category c = comboBox1.SelectedItem as Category;
                 book.CategoryId = c.Id;
                 label3.Text = "Please Enter the Category";
+                ok = true;
             }
             else
             {

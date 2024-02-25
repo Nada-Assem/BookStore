@@ -16,11 +16,14 @@ namespace BookStore.WinForms
 {
     public partial class Categories : Form
     {
-        static StoreContext dbContext = new StoreContext();
-        ICategoryService category = new CategoryService(dbContext);
-        public Categories()
+        ICategoryService category;
+        private readonly StoreContext _dbContext;
+
+        public Categories(StoreContext dbContext)
         {
             InitializeComponent();
+            _dbContext = dbContext;
+            category = new CategoryService(dbContext);
         }
         private void Categories_Load(object sender, EventArgs e)
             => DGCategories.DataSource = category.GetAllCategories();
