@@ -57,16 +57,14 @@ namespace BookStore.Repository
         public List<CustomerOrderToReturnDTO>? GetAllCustomerOrdersRepo(int customerId)
         {
             var query = from order in _dbContext.Orders
-                        join customer in _dbContext.Customers on order.CustomerId equals customerId
+                        where order.CustomerId == customerId
                         select new CustomerOrderToReturnDTO
                         {
                             OrderId = order.Id,
                             Amount = order.Amount,
                             Date = order.Date,
                             Status = order.Status,
-                            Books = (from bookOrder in order.OrderBooks
-                                     join book in _dbContext.Books on bookOrder.BookId equals book.Id
-                                     select book.Title).ToList()
+
                         };
 
             List<CustomerOrderToReturnDTO> ordersToReturnDTO = query.ToList();
@@ -84,16 +82,19 @@ namespace BookStore.Repository
         }
         public OrderStatusEnum CreateOrderRepo(int customerId, List<BookCustomer> cart)
         {
+            decimal totalPrice = 0;
             Order order = new();
             order.CustomerId = customerId;
             order.Status = OrderStatusEnum.Pending;
-            decimal amount = 0;
+
             foreach (var item in cart)
             {
-                var book = _dbContext.Books.Find(item.BookId);
-                amount += book.Price * item.Quantity;
-                _dbContext.BookCustomers.Remove(item);
+                decimal bookPrice = _dbContext.Books.Find(item.BookId).Price;
+                totalPrice += bookPrice * item.Quantity;
             }
+
+            order.Amount = totalPrice;
+
             _dbContext.Orders.Add(order);
             _dbContext.SaveChanges();
 

@@ -19,7 +19,6 @@ namespace BookStore.Service
     {
         private readonly StoreContext _dbContext;
 
-
         public CustomerService(StoreContext dbContext) : base(dbContext)
             => _dbContext = dbContext;
 
@@ -67,11 +66,8 @@ namespace BookStore.Service
             else
                 return -1;
         }
-        public Customer GetCustomerById(int customerId)
-        {
-            return GetCustomerById(customerId);
-        }
-
+        public Customer? GetCustomerById(int customerId)
+            => GetCustomerByIdRepo(customerId);
         public List<Customer> GetAllCustomersTo()
         {
             return GetAllCustomers();
@@ -79,6 +75,42 @@ namespace BookStore.Service
         public void DeleteCustomerTo(int customerId)
         {
             DeleteCustomer(customerId);
+        }
+        public CustomerLoginMsgsDTO? UpdateCustomer(CustomerToUpdateDTO updatedCustomer, int customerId)
+        {
+            
+            var msgs = new CustomerLoginMsgsDTO();
+            var customer = GetCustomerByIdRepo(customerId);
+
+            if (customer != null)
+            {
+                if (Validations.NameCheck(updatedCustomer.Name) == CheckStatusEnum.Match)
+                    customer.Name = updatedCustomer.Name;
+                else
+                    msgs.NameMsg = "Invalid Name";
+
+                if(customer.Phone == updatedCustomer.Phone)
+                    customer.Phone = updatedCustomer.Phone;
+                else if (Validations.PhoneCheck(updatedCustomer.Phone) == CheckStatusEnum.Match)
+                    customer.Phone = updatedCustomer.Phone;
+                else
+                    msgs.PhoneMsg = "Invalid Phone";
+
+                if (customer.UserName.Equals(updatedCustomer.UserName, StringComparison.OrdinalIgnoreCase))
+                    customer.UserName = updatedCustomer.UserName;
+                else if (Validations.UserNameCheck(updatedCustomer.UserName) == CheckStatusEnum.Match)
+                    customer.UserName = updatedCustomer.UserName;
+                else
+                    msgs.UserNameMsg = "This username is existed";
+
+                if (Validations.PasswordCheck(updatedCustomer.Password) == CheckStatusEnum.Match)
+                    customer.Password = updatedCustomer.Password;
+                else
+                    msgs.PasswordMsg = "Invalid Password";
+                
+                return msgs;
+            }
+            return null;
         }
     }
 }

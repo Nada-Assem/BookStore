@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BookStore.Core.Entities;
+using BookStore.Core.Services.Contracts;
+using BookStore.Repository.Data;
+using BookStore.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,16 @@ namespace BookStore.WinForms.CustomerForms
 {
     public partial class Cart : Form
     {
-        public Cart()
+        IOrderService orderService;
+        private readonly StoreContext _dbContext;
+        private readonly int _customerId;
+
+        public Cart(StoreContext dbContext, int customerId)
         {
             InitializeComponent();
+            _dbContext = dbContext;
+            _customerId = customerId;
+            orderService = new OrderService(_dbContext);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -30,6 +41,12 @@ namespace BookStore.WinForms.CustomerForms
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        // Create an order
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -135,7 +135,7 @@ namespace BookStore.Repository.Helper
             else
                 return CheckStatusEnum.DoesNotMatch;
         }
-        private static CheckStatusEnum UserNameCheck(string userName)
+        public static CheckStatusEnum UserNameCheck(string userName)
         {
             // Method that validate the userName parameter..
 
@@ -153,7 +153,7 @@ namespace BookStore.Repository.Helper
             else
                 return CheckStatusEnum.DoesNotMatch;
         }
-        private static CheckStatusEnum PasswordCheck(string password)
+        public static CheckStatusEnum PasswordCheck(string password)
         {
             // Method that validate the password parameter..
 
@@ -167,7 +167,7 @@ namespace BookStore.Repository.Helper
             else
                 return CheckStatusEnum.DoesNotMatch;
         }
-        private static CheckStatusEnum EmailCheck(string email)
+        public static CheckStatusEnum EmailCheck(string email)
         {
             // Method that validate the email parameter..
 
@@ -186,7 +186,7 @@ namespace BookStore.Repository.Helper
             else
                 return CheckStatusEnum.DoesNotMatch;
         }
-        private static CheckStatusEnum PhoneCheck(string phone)
+        public static CheckStatusEnum PhoneCheck(string phone)
         {
             // Method that validate the phone parameter..
 

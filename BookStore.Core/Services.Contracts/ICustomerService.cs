@@ -15,5 +15,6 @@ namespace BookStore.Core.Services.Contracts
         public Customer? GetCustomerById(int customerId);
         public List<Customer> GetAllCustomersTo();
         public void DeleteCustomerTo(int customerId);
+        CustomerLoginMsgsDTO? UpdateCustomer(CustomerToUpdateDTO updatedCustomer, int customerId);
     }
 }

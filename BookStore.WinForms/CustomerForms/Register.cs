@@ -48,7 +48,15 @@ namespace BookStore.WinForms.CustomerForms
             lbPhoneMsg.Text = customerLoginMsgs.PhoneMsg;
 
             if (customerLoginMsgs.IsSavedMsg == CheckStatusEnum.Saved)
+            {
+                TBUserName.Text = string.Empty;
+                TBPassword.Text = string.Empty;
+                TBName.Text = string.Empty;
+                TBEmail.Text = string.Empty;
+                TBPhone.Text = string.Empty;
+                TBAddrees.Text = string.Empty;
                 MessageBox.Show("Customer is saved");
+            }
             else
                 MessageBox.Show("Customer isn't saved");
         }

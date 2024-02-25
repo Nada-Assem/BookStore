@@ -39,10 +39,10 @@
             // 
             dataGridView1.BackgroundColor = Color.FromArgb(69, 51, 39);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(8, 100);
+            dataGridView1.Location = new Point(12, 83);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(457, 340);
+            dataGridView1.Size = new Size(457, 355);
             dataGridView1.TabIndex = 0;
             // 
             // pictureBox1
@@ -78,6 +78,7 @@
             Name = "ViewYourOrders";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View Your Orders";
+            Load += ViewYourOrders_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

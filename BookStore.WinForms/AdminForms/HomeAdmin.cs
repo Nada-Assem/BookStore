@@ -1,4 +1,5 @@
 ﻿using BookStore.Core.Entities;
+using BookStore.Repository.Data;
 using BookStore.WinForms.AdminForms;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,17 @@ namespace BookStore.WinForms
 {
     public partial class HomeAdmin : Form
     {
-        public HomeAdmin()
+        private readonly StoreContext _dbContext;
+
+        public HomeAdmin(StoreContext dbContext)
         {
             InitializeComponent();
+            _dbContext = dbContext;
         }
 
         private void btOrders_Click(object sender, EventArgs e)
         {
-            Orders orders = new Orders();
+            Orders orders = new Orders(_dbContext);
             orders.Show();
         }
 
@@ -33,7 +37,7 @@ namespace BookStore.WinForms
 
         private void btCategories_Click(object sender, EventArgs e)
         {
-            Categories categories = new Categories();
+            Categories categories = new Categories(_dbContext);
             categories.Show();
         }
 
@@ -42,9 +46,6 @@ namespace BookStore.WinForms
             Books books = new Books();
             books.Show();
         }
-
-        
-        
 
         private void PBLogout_Click(object sender, EventArgs e)
         {
