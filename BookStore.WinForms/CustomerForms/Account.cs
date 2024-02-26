@@ -59,11 +59,13 @@ namespace BookStore.WinForms.CustomerForms
                 lbUserNameMgs.Text = msgs.UserNameMsg;
                 lbPhoneMgs.Text = msgs.PhoneMsg;
                 lbPasswordMgs.Text = msgs.PasswordMsg;
+                lbAddressMgs.Text = msgs.AddressMsg;
 
                 if (string.IsNullOrEmpty(msgs.NameMsg) &&
                     string.IsNullOrEmpty(msgs.UserNameMsg) &&
                     string.IsNullOrEmpty(msgs.PhoneMsg) &&
-                    string.IsNullOrEmpty(msgs.PasswordMsg))
+                    string.IsNullOrEmpty(msgs.PasswordMsg) &&
+                    string.IsNullOrEmpty(msgs.AddressMsg))
                 {
                     var customer = customerService.GetCustomerById(_customerId);
                     customer.Name = textBox1.Text;

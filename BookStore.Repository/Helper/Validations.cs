@@ -118,6 +118,20 @@ namespace BookStore.Repository.Helper
                     break;
             }
 
+            // Address msg
+            switch (AddressCheck(customerParams.Address))
+            {
+                case CheckStatusEnum.Empty:
+                    massages.AddressMsg = $"Fill the field!!";
+                    break;
+                case CheckStatusEnum.Match:
+                    massages.AddressMsg = string.Empty;
+                    break;
+                case CheckStatusEnum.DoesNotMatch:
+                    massages.AddressMsg = $"Enter a valid Address!!";
+                    break;
+            }
+
             return massages;
 
         }
@@ -200,6 +214,20 @@ namespace BookStore.Repository.Helper
 
             // Check if the phone consists only of alphabets
             if (PhoneRegex.IsMatch(phone))
+                return CheckStatusEnum.Match;
+            else
+                return CheckStatusEnum.DoesNotMatch;
+        }
+        public static CheckStatusEnum AddressCheck(string address)
+        {
+            // Method that validate the address parameter..
+
+            // Check if the address is NULL
+            if (string.IsNullOrEmpty(address))
+                return CheckStatusEnum.Empty;
+
+            // Check if the address consists only of alphabets
+            if (NameRegex.IsMatch(address))
                 return CheckStatusEnum.Match;
             else
                 return CheckStatusEnum.DoesNotMatch;

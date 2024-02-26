@@ -14,6 +14,7 @@ namespace BookStore.Core.DTOs
         public string? PasswordMsg { get; set; }
         public string? EmailMsg { get; set; }
         public string? PhoneMsg { get; set; }
+        public string? AddressMsg { get; set; }
         public CheckStatusEnum IsSavedMsg { get; set; }
     }
 }

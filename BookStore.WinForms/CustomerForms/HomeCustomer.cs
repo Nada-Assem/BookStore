@@ -1,5 +1,8 @@
 ﻿using BookStore.Core.Entities;
+using BookStore.Core.Repositories.Contracts;
+using BookStore.Core.Services.Contracts;
 using BookStore.Repository.Data;
+using BookStore.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,8 +25,7 @@ namespace BookStore.WinForms.CustomerForms
             InitializeComponent();
             _customerId = customerId;
             _dbContext = dbContext;
-        }
-
+        } 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 

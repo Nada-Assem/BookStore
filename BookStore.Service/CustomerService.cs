@@ -40,7 +40,8 @@ namespace BookStore.Service
                 string.IsNullOrEmpty(Msgs.UserNameMsg) &&
                 string.IsNullOrEmpty(Msgs.PasswordMsg) &&
                 string.IsNullOrEmpty(Msgs.EmailMsg) &&
-                string.IsNullOrEmpty(Msgs.PhoneMsg))
+                string.IsNullOrEmpty(Msgs.PhoneMsg) &&
+                string.IsNullOrEmpty(Msgs.AddressMsg))
             {
                 var customer = MapConfigs.mapper.Map<CustomerLoginParamsDTO, Customer>(customerParams);
                 _dbContext.Customers.Add(customer);
@@ -89,7 +90,12 @@ namespace BookStore.Service
                 else
                     msgs.NameMsg = "Invalid Name";
 
-                if(customer.Phone == updatedCustomer.Phone)
+                if (Validations.NameCheck(updatedCustomer.Address) == CheckStatusEnum.Match)
+                    customer.Address = updatedCustomer.Address;
+                else
+                    msgs.AddressMsg = "Invalid Address";
+
+                if (customer.Phone == updatedCustomer.Phone)
                     customer.Phone = updatedCustomer.Phone;
                 else if (Validations.PhoneCheck(updatedCustomer.Phone) == CheckStatusEnum.Match)
                     customer.Phone = updatedCustomer.Phone;

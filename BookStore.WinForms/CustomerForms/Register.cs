@@ -46,6 +46,7 @@ namespace BookStore.WinForms.CustomerForms
             lbPasswordMsg.Text = customerLoginMsgs.PasswordMsg;
             lbEmailMsg.Text = customerLoginMsgs.EmailMsg;
             lbPhoneMsg.Text = customerLoginMsgs.PhoneMsg;
+            lbAddressMsg.Text = customerLoginMsgs.AddressMsg;
 
             if (customerLoginMsgs.IsSavedMsg == CheckStatusEnum.Saved)
             {
