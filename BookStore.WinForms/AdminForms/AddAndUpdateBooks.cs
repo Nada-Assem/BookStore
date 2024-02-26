@@ -21,6 +21,7 @@ namespace BookStore.WinForms.AdminForms
     {
         static StoreContext dbContext = new StoreContext();
         IBookService bookService = new BooksService(dbContext);
+        Book book;
         public AddAndUpdateBooks()
         {
             InitializeComponent();
@@ -46,14 +47,36 @@ namespace BookStore.WinForms.AdminForms
 
         private void BTUploadImg_Click(object sender, EventArgs e)
         {
-           
+            Thread thread = new Thread(new ThreadStart(() =>
+            {
+                try
+                {
+                    OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                    openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF";
+
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        string selectedFile = openFileDialog1.FileName;
+                       
+                        this.Invoke(new Action(() => Img.Image = Image.FromFile(selectedFile)));
+                        book.Image = selectedFile;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
+
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
 
         }
 
         private void BTAddBook_Click(object sender, EventArgs e)
         {
             bool ok = true;
-            Book book = new Book();
+             book = new Book();
             book.Status = BookStatusEnum.Available;
             if (textBox4.Text.Length > 0 || bookService.GetBookByName(textBox4.Text) != null)
             {
