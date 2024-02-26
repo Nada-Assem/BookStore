@@ -58,8 +58,13 @@ namespace BookStore.Service
             var Customer = _customerService.GetCustomerById(customerId);
             if (Customer is not null)
             {
-                var status = CreateOrderRepo(customerId, Customer.CustomerBooks);
-                return status;
+                if (Customer.CustomerBooks.Count()>0)
+                {
+                    var status = CreateOrderRepo(customerId, Customer.CustomerBooks);
+                    return status;
+                }
+                else
+                    return OrderStatusEnum.NoItems;
             }
             return OrderStatusEnum.NotCreated;
         }
