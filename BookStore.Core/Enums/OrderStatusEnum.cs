@@ -8,6 +8,6 @@ namespace BookStore.Repository.Enums
 {
     public enum OrderStatusEnum : byte
     {
-        Pending, AwaitingShipment, Shipped, Received, Cancelled, NotCancelled, Created
+        Pending, AwaitingShipment, Shipped, Received, Cancelled, NotCancelled, Created, NotCreated
     }
 }

@@ -46,7 +46,7 @@ namespace BookStore.WinForms.CustomerForms
         // Create an order
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            orderService.CreateOrder(_customerId);
         }
     }
 }

@@ -18,7 +18,6 @@ namespace BookStore.Repository.Data.Config
                    .HasColumnType("decimal(18,2)");
 
             builder.Property(o => o.Date)
-                   .IsRequired()
                    .HasDefaultValueSql("GETDATE()");
 
             builder.Property(o => o.Status)

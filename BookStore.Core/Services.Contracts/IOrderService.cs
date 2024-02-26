@@ -16,6 +16,6 @@ namespace BookStore.Core.Services.Contracts
         CheckStatusEnum UpdateOrderStatus(int orderId, OrderStatusEnum newstatus);
         List<CustomerOrderToReturnDTO>? GetAllCustomerOrders(int customerId);
         OrderStatusEnum MakeCustomerCancelItsOrder(int orderId);
-        OrderStatusEnum CreateOrder(int customerId, List<BookCustomer> cart);
+        OrderStatusEnum CreateOrder(int customerId);
     }
 }

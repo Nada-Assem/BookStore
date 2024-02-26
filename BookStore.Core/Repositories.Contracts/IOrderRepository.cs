@@ -17,6 +17,6 @@ namespace BookStore.Core.Repositories.Contracts
         CheckStatusEnum ChangeOrderStatusRepo(Order order, OrderStatusEnum newstatus);
         List<CustomerOrderToReturnDTO>? GetAllCustomerOrdersRepo(int customerId);
         OrderStatusEnum MakeCustomerCancelItsOrderRepo(int orderId);
-        OrderStatusEnum CreateOrderRepo(int customerId, List<BookCustomer> cart);
+        OrderStatusEnum CreateOrderRepo(int customerId, ICollection<BookCustomer> cart);
     }
 }
