@@ -13,13 +13,13 @@ namespace BookStore.Core.Entities
         public decimal Price { get; set; }
         public BookStatusEnum Status { get; set; }
         public int CategoryId { get; set; }
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
 
         // Navigational Property => Many
-        public ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
-        public ICollection<BookPublisher> BookPublishers { get; set; } = new List<BookPublisher>();
-        public ICollection<BookOrder> BookOrders { get; set; } = new List<BookOrder>();
-        public ICollection<BookCustomer> BookCustomers { get; set; } = new List<BookCustomer>();
+        public ICollection<BookAuthor>? BookAuthors { get; set; } = new List<BookAuthor>();
+        public ICollection<BookPublisher>? BookPublishers { get; set; } = new List<BookPublisher>();
+        public ICollection<BookOrder>? BookOrders { get; set; } = new List<BookOrder>();
+        public ICollection<BookCustomer>? BookCustomers { get; set; } = new List<BookCustomer>();
     }
 }
 

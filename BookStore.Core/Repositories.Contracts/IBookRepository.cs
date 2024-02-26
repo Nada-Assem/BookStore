@@ -14,5 +14,6 @@ namespace BookStore.Core.Repositories.Contracts
         void Add(Book book);
         void Update(Book book);
         void Delete(int id);
+        public List<Book> GetBooksByCategoryId(int categoryId);
     }
 }
