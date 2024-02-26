@@ -1,6 +1,7 @@
 ﻿using BookStore.Core.Entities;
 using BookStore.Core.Services.Contracts;
 using BookStore.Repository.Data;
+using BookStore.Repository.Enums;
 using BookStore.Service;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,13 @@ namespace BookStore.WinForms.CustomerForms
         // Create an order
         private void button2_Click(object sender, EventArgs e)
         {
-            orderService.CreateOrder(_customerId);
+            OrderStatusEnum status = orderService.CreateOrder(_customerId);
+            if (status == OrderStatusEnum.Created)
+                MessageBox.Show("Order Created :)");
+            else if(status == OrderStatusEnum.NotCreated)
+                MessageBox.Show("Order doesn't Created :(");
+            else if (status == OrderStatusEnum.NoItems)
+                MessageBox.Show("Your Cart is Empty !!");
         }
     }
 }

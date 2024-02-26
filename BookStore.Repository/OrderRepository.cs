@@ -102,7 +102,7 @@ namespace BookStore.Repository
 
             _dbContext.SaveChanges();
 
-            return OrderStatusEnum.Pending;
+            return OrderStatusEnum.Created;
         }
     }
 }
