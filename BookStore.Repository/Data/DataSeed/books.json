@@ -3,61 +3,70 @@
     "Title": "I Feel Bad About My Neck",
     "Price": 50,
     "Status": 0,
-    "CategoryId": 1
-   
+    "CategoryId": 1,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Football-Steve_Flinders.jpg"
   },
   {
     "Title": "Broken Glass",
     "Price": 60,
     "Status": 1,
-    "CategoryId": 2
+    "CategoryId": 2,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Forrest_Gump-John_Escott.jpg"
   },
   {
     "Title": "The Girl With the Dragon Tattoo",
     "Price": 70,
     "Status": 0,
-    "CategoryId": 3
+    "CategoryId": 3,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/From_the_Earth_to_the_Moon-Jules_Verne.jpg"
   },
   {
     "Title": "Harry Potter and the Goblet of Fire",
     "Price": 80,
     "Status": 0,
-    "CategoryId": 4
+    "CategoryId": 4,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Halloween_Horror-Clemen_D_B_Gina.jpg"
   },
   {
     "Title": "A Little Life",
     "Price": 90,
     "Status": 1,
-    "CategoryId": 4
+    "CategoryId": 4,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Hearts_of_Three-Jack_London_cover.jpg"
   },
   {
     "Title": "Chronicles: Volume One",
     "Price": 100,
     "Status": 1,
-    "CategoryId": 1
+    "CategoryId": 1,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Les_Miserables-Victor_Hugo.jpg"
   },
   {
     "Title": "The Tipping Point",
     "Price": 110,
     "Status": 0,
-    "CategoryId": 5
+    "CategoryId": 5,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Monkey_Party-John_Bookworm_cover.jpg"
   },
   {
     "Title": "Darkmans",
     "Price": 120,
     "Status": 1,
-    "CategoryId": 6
+    "CategoryId": 6,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Mr_Bean_in_Town-Richard_Curtis.jpg"
   },
   {
     "Title": "The Siege",
     "Price": 130,
     "Status": 0,
-    "CategoryId": 7
+    "CategoryId": 7,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Notting_Hill-Richard_Curtis.jpg"
   },
   {
     "Title": "Light",
     "Price": 140,
     "Status": 1,
-    "CategoryId": 8
+    "CategoryId": 8,
+    "Image": "../../../../BookStore.Repository/Data/DataSeed/Images/Peter_Pan-J_M_Barrie.jpg"
   }
 ]

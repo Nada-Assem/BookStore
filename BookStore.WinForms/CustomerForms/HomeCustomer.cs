@@ -5,8 +5,6 @@ using BookStore.Repository.Data;
 using BookStore.Service;
 using BookStore.WinForms.AdminForms;
 using Microsoft.EntityFrameworkCore;
-using BookStore.Core.Entities;
-using BookStore.Repository.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
