@@ -7,6 +7,7 @@ using BookStore.WinForms.AdminForms;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -125,6 +126,11 @@ namespace BookStore.WinForms.CustomerForms
 
 
                 };
+                addToCartButton.Click += (sender, e) =>
+                {
+                    Cart cart = new Cart(_dbContext, _customerId, book);
+                    cart.Show();
+                };
                 addToCartButton.Margin = new Padding(90, 0, 0, 0);
                 FlowLayoutPanel bookPanel = new FlowLayoutPanel();
                 bookPanel.Size = new Size(950, 200);
@@ -161,7 +167,10 @@ namespace BookStore.WinForms.CustomerForms
 
         private void PBCart_Click(object sender, EventArgs e)
         {
-            Cart cart = new Cart(_dbContext, _customerId);
+
+            Book b = _dbContext.Books.FirstOrDefault();
+
+            Cart cart = new Cart(_dbContext, _customerId,b);
             cart.ShowDialog();
         }
 
