@@ -80,7 +80,7 @@ namespace BookStore.Repository
             }
             return OrderStatusEnum.NotCancelled;
         }
-        public OrderStatusEnum CreateOrderRepo(int customerId, List<BookCustomer> cart)
+        public OrderStatusEnum CreateOrderRepo(int customerId, ICollection<BookCustomer> cart)
         {
             decimal totalPrice = 0;
             Order order = new();
@@ -96,9 +96,13 @@ namespace BookStore.Repository
             order.Amount = totalPrice;
 
             _dbContext.Orders.Add(order);
+
+            foreach (var item in cart)
+                _dbContext.BookCustomers.Remove(item);
+
             _dbContext.SaveChanges();
 
-            return OrderStatusEnum.Pending;
+            return OrderStatusEnum.Created;
         }
     }
 }
